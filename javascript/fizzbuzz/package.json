@@ -1,0 +1,25 @@
+{
+  "name": "js-environment",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "npm": "^5.8.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.1.0"
+  },
+  "scripts": {
+    "test": "mocha --require babel-core/register"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
