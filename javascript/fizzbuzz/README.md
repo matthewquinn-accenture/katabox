@@ -1,3 +1,3 @@
-# JS-Environment
+# Fizzbuzz
 
-Basic JavaScript Environment Config
+Fizzbuzz kata: [http://codingdojo.org/kata/FizzBuzz/]
