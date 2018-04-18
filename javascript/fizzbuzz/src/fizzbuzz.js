@@ -1,7 +1,7 @@
 export const calculator = (input) => {
   let output;
 
-  if (input == 3) {
+  if (input % 3 == 0) {
     output = "fizz"
   } else {
     output = input
