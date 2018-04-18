@@ -28,4 +28,12 @@ describe("Fizzbuzz Kata", () => {
     it("Calculator returns buzz for multiples of 5", () => {
       expect(calculator(10)).to.equal("buzz");
   });
+
+    it("Calculator returns fizzbuzz with input 15", () => {
+      expect(calculator(15)).to.equal("fizzbuzz");
+  });
+
+    it("Calculator returns fizzbuzz for multiples of 15", () => {
+      expect(calculator(30)).to.equal("fizzbuzz");
+  });
 });
