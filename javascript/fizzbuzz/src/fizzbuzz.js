@@ -1,7 +1,7 @@
 export const calculator = (input) => {
   let output;
 
-  if (input % 5 == 0) {
+  if (isBuzz(input)) {
     output = "buzz"
   } else if (isFizz(input)) {
     output = "fizz"
@@ -10,6 +10,10 @@ export const calculator = (input) => {
   }
 
   return output
+}
+
+const isBuzz = (input) => {
+  return input % 5 == 0
 }
 
 const isFizz = (input) => {
