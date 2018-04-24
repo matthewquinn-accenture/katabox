@@ -1,3 +1,3 @@
-# JS-Environment
+# Babysitter
 
-Basic JavaScript Environment Config
+Babysitter kata: https://github.com/PillarTechnology/kata-babysitter

@@ -1,18 +1,11 @@
 export class Babysitter {
-  constructor(startTime, bedtime, endtime) {
-    if (startTime === undefined) {
-      this.startTime = 5
-    } else {
-      this.startTime = this.validateStartTime(startTime)
-    }
+  constructor(startTime = 5, bedtime = 8, endtime = 2) {
+      this.startTime = startTime
+      this.bedtime = bedtime
+      this.endtime = endtime
 
-    this.bedtime = 8
-
-    if (endtime === undefined) {
-      this.endtime = 2
-    } else {
-      this.endtime = this.validateEndtime(endtime)
-    }
+      this.validateStartTime(this.startTime)
+      this.validateEndtime(this.endtime)
   }
 
 validateStartTime(startTime) {
