@@ -8,6 +8,9 @@ const MIDNIGHT = 12
 
 const calculateStartTime = (startTime, bedtime, endtime) => {
   validateStartTime(startTime)
+  if (startTime > bedtime) {
+    bedtime = startTime
+  }
   return (bedtime - startTime) * START_TIME_RATE
 }
 
