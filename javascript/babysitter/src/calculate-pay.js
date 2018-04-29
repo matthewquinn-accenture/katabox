@@ -1,4 +1,4 @@
-import { validateStartTime, validateEndtime } from './validate-shifts'
+import { validateStartTime, validateEndtime, validateBedtime } from './validate-shifts'
 
 const START_TIME_RATE = 12
 const BEDTIME_RATE = 8
@@ -15,6 +15,7 @@ const calculateStartTime = (startTime, bedtime, endtime) => {
 }
 
 const calculateBedtime = (startTime, bedtime, endtime) => {
+  validateBedtime(bedtime)
   return (MIDNIGHT - bedtime) * BEDTIME_RATE
 }
 

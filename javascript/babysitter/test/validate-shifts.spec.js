@@ -14,6 +14,15 @@ describe("Babysitter Kata", () => {
       }
     });
 
+    it("Can't stay up past MIDNIGHT", () => {
+      try {
+        rates.calculateBedtime(5, 1, 2)
+      }
+      catch(err) {
+        expect("Can't stay up past MIDNIGHT!").to.equal(err.message)
+      }
+    });
+
     it("Can't stay later than 4AM", () => {
       try {
        rates.calculateMidnight(5, 8, 5)
