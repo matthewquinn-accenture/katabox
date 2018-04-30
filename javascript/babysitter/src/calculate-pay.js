@@ -16,10 +16,16 @@ const calculateStartTime = (startTime, bedtime, endtime) => {
 
 const calculateBedtime = (startTime, bedtime, endtime) => {
   validateBedtime(bedtime)
+  if ((MIDNIGHT - endtime) < 8) {
+    return (endtime - bedtime) * BEDTIME_RATE
+  }
   return (MIDNIGHT - bedtime) * BEDTIME_RATE
 }
 
 const calculateMidnight = (startTime, bedtime, endtime) => {
+  if ((MIDNIGHT - endtime) < 8) {
+    endtime = 0
+  }
   validateEndtime(endtime)
   return (endtime - 0) * MIDNIGHT_RATE
 }

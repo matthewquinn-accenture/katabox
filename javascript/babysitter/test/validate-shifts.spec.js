@@ -36,5 +36,9 @@ describe("Babysitter Kata", () => {
     it("Start-time is after bedtime", () => {
       expect(64).to.equal(rates.calculateTotalPay(10, 8, 2))
     });
+
+    it("Endtime is before MIDNIGHT", () => {
+      expect(52).to.equal(rates.calculateTotalPay(5, 8, 10))
+    });
   });
 });
