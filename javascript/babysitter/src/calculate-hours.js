@@ -13,5 +13,8 @@ export const calculateStartTimeHours = (startTime, bedtime, endtime) => {
 export const calculateBedtimeHours = (startTime, bedtime, endtime) => {
   let bedtimeHours = (MIDNIGHT - bedtime)
 
+  if ((MIDNIGHT - endtime) < 8) {
+    bedtimeHours = (endtime - bedtime)
+  }
   return bedtimeHours
 }

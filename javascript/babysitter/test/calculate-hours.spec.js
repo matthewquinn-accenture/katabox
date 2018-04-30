@@ -19,5 +19,9 @@ describe("Babysitter kata", () => {
     it("Calculate bedtime hours", () => {
       expect(4).to.equal(calculateBedtimeHours(5, 8, 2))
     });
+
+    it("Calculate bedtime hours if endtime is before midnight", () => {
+      expect(2).to.equal(calculateBedtimeHours(5, 8, 10))
+    });
   });
 });
