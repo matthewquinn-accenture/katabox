@@ -1,3 +1,5 @@
+const MIDNIGHT = 12
+
 export const calculateStartTimeHours = (startTime, bedtime, endtime) => {
   let startTimeHours = (bedtime - startTime)
 
@@ -6,4 +8,10 @@ export const calculateStartTimeHours = (startTime, bedtime, endtime) => {
   }
 
   return startTimeHours
+}
+
+export const calculateBedtimeHours = (startTime, bedtime, endtime) => {
+  let bedtimeHours = (MIDNIGHT - bedtime)
+
+  return bedtimeHours
 }
