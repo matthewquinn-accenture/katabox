@@ -22,5 +22,9 @@ export const calculateBedtimeHours = (startTime, bedtime, endtime) => {
 export const calculateEndtimeHours = (startTime, bedtime, endtime) => {
   let endtimeHours = (endtime - 0)
 
+  if ((MIDNIGHT - endtime) < 8) {
+    endtimeHours = 0
+  }
+
   return endtimeHours
 }
