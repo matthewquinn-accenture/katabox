@@ -1,6 +1,6 @@
 import Mocha from 'mocha'
 import { expect } from 'chai'
-import { calculateStartTimeHours, calculateBedtimeHours } from '../src/calculate-hours'
+import { calculateStartTimeHours, calculateBedtimeHours, calculateEndtimeHours } from '../src/calculate-hours'
 
 describe("Babysitter kata", () => {
   describe("Calculate start-time hours", () => {
@@ -22,6 +22,13 @@ describe("Babysitter kata", () => {
 
     it("Calculate bedtime hours if endtime is before midnight", () => {
       expect(2).to.equal(calculateBedtimeHours(5, 8, 10))
+    });
+  });
+
+  describe("Calculate endtime hours", () => {
+
+    it("Calculate endtime hours", () => {
+      expect(2).to.equal(calculateEndtimeHours(5, 8, 2))
     });
   });
 });

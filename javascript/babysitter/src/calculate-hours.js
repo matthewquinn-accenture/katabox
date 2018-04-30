@@ -18,3 +18,9 @@ export const calculateBedtimeHours = (startTime, bedtime, endtime) => {
   }
   return bedtimeHours
 }
+
+export const calculateEndtimeHours = (startTime, bedtime, endtime) => {
+  let endtimeHours = (endtime - 0)
+
+  return endtimeHours
+}
