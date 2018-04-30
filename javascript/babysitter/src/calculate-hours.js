@@ -1,5 +1,9 @@
 export const calculateStartTimeHours = (startTime, bedtime, endtime) => {
   let startTimeHours = (bedtime - startTime)
 
+  if (startTime > bedtime) {
+    startTimeHours = 0
+  }
+
   return startTimeHours
 }
