@@ -25,5 +25,5 @@ export const validateEndtime = (endtime) => {
 }
 
 const isEndtimeAfter4AM = (endtime) => {
-  return endtime > 4
+  return (endtime > 4) && (12 - endtime) >= 5
 }

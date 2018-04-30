@@ -1,39 +1,29 @@
 import { validateStartTime, validateEndtime, validateBedtime } from './validate-shifts'
+import { calculateStartTimeHours, calculateBedtimeHours, calculateMidnightHours } from './calculate-hours'
 
 const START_TIME_RATE = 12
 const BEDTIME_RATE = 8
 const MIDNIGHT_RATE = 16
 
-const MIDNIGHT = 12
-
-const calculateStartTime = (startTime, bedtime, endtime) => {
+const calculateStartTimePay = (startTime, bedtime, endtime) => {
   validateStartTime(startTime)
-  if (startTime > bedtime) {
-    bedtime = startTime
-  }
-  return (bedtime - startTime) * START_TIME_RATE
+  return calculateStartTimeHours(startTime, bedtime, endtime) * START_TIME_RATE
 }
 
-const calculateBedtime = (startTime, bedtime, endtime) => {
+const calculateBedtimePay = (startTime, bedtime, endtime) => {
   validateBedtime(bedtime)
-  if ((MIDNIGHT - endtime) < 8) {
-    return (endtime - bedtime) * BEDTIME_RATE
-  }
-  return (MIDNIGHT - bedtime) * BEDTIME_RATE
+  return calculateBedtimeHours(startTime, bedtime, endtime) * BEDTIME_RATE
 }
 
-const calculateMidnight = (startTime, bedtime, endtime) => {
-  if ((MIDNIGHT - endtime) < 8) {
-    endtime = 0
-  }
+const calculateMidnightPay = (startTime, bedtime, endtime) => {
   validateEndtime(endtime)
-  return (endtime - 0) * MIDNIGHT_RATE
+  return calculateMidnightHours(startTime, bedtime, endtime) * MIDNIGHT_RATE
 }
 
 const calculateTotalPay = (startTime, bedtime, endtime) => {
-  return calculateStartTime(startTime, bedtime, endtime) +
-         calculateBedtime(startTime, bedtime, endtime) +
-         calculateMidnight(startTime, bedtime, endtime)
+  return calculateStartTimePay(startTime, bedtime, endtime) +
+         calculateBedtimePay(startTime, bedtime, endtime) +
+         calculateMidnightPay(startTime, bedtime, endtime)
 }
 
-export { START_TIME_RATE, calculateStartTime, BEDTIME_RATE, calculateBedtime, MIDNIGHT_RATE, calculateMidnight, calculateTotalPay }
+export { START_TIME_RATE, calculateStartTimePay, BEDTIME_RATE, calculateBedtimePay, MIDNIGHT_RATE, calculateMidnightPay, calculateTotalPay }

@@ -12,19 +12,19 @@ describe("Babysitter Kata", () => {
   describe("start-time shift", () => {
 
     it("Calculate start-time rate", () => {
-      expect(rates.START_TIME_RATE * 3).to.equal(rates.calculateStartTime(5, 8, 2));
+      expect(rates.START_TIME_RATE * 3).to.equal(rates.calculateStartTimePay(5, 8, 2));
     });
   });
 
   describe("bedtime shift", () => {
     it("Calculate bedtime rate", () => {
-      expect(rates.BEDTIME_RATE * 4).to.equal(rates.calculateBedtime(5, 8, 2));
+      expect(rates.BEDTIME_RATE * 4).to.equal(rates.calculateBedtimePay(5, 8, 2));
     });
   });
 
   describe("midnight shift", () => {
     it("Calculate midnight rate", () => {
-      expect(rates.MIDNIGHT_RATE * 2).to.equal(rates.calculateMidnight(5, 8, 2));
+      expect(rates.MIDNIGHT_RATE * 2).to.equal(rates.calculateMidnightPay(5, 8, 2));
     });
   });
 
