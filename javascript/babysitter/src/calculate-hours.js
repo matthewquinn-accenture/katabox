@@ -1,30 +1,19 @@
 const MIDNIGHT = 12
 
 export const calculateStartTimeHours = (startTime, bedtime, endtime) => {
-  let startTimeHours = (bedtime - startTime)
 
-  if (startTime > bedtime) {
-    startTimeHours = 0
-  }
-
-  return startTimeHours
+  return Math.max(0, (bedtime - startTime))
 }
 
 export const calculateBedtimeHours = (startTime, bedtime, endtime) => {
-  let bedtimeHours = (MIDNIGHT - bedtime)
+  bedtime = Math.max((endtime - bedtime), 0)
+  endtime = Math.min(4, (MIDNIGHT - endtime))
 
-  if ((MIDNIGHT - endtime) < 8) {
-    bedtimeHours = (endtime - bedtime)
-  }
-  return bedtimeHours
+  return Math.max(bedtime, endtime)
 }
 
 export const calculateMidnightHours = (startTime, bedtime, endtime) => {
-  let midnightHours = (endtime - 0)
+  endtime = Math.min(endtime, 5) + 12
 
-  if ((MIDNIGHT - endtime) < 8) {
-    midnightHours = 0
-  }
-
-  return midnightHours
+  return Math.max((16 - endtime), 0)
 }
