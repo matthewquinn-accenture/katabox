@@ -10,7 +10,7 @@ describe("Babysitter Kata", () => {
         rates.calculateStartTimePay(3, 8, 2)
       }
       catch(err) {
-        expect("Can't start before 5PM!").to.equal(err.message)
+        expect(err.message).to.equal("Can't start before 5PM!")
       }
     });
 
@@ -19,7 +19,7 @@ describe("Babysitter Kata", () => {
         rates.calculateBedtimePay(5, 1, 2)
       }
       catch(err) {
-        expect("Can't stay up past MIDNIGHT!").to.equal(err.message)
+        expect(err.message).to.equal("Can't stay up past MIDNIGHT!")
       }
     });
 
@@ -28,17 +28,17 @@ describe("Babysitter Kata", () => {
        rates.calculateMidnightPay(5, 8, 5)
       }
       catch(err) {
-        expect("Can't work later than 4AM!").to.equal(err.message)
+        expect(err.message).to.equal("Can't work later than 4AM!")
       }
     });
   });
   describe("edge cases", () => {
     it("Start-time is after bedtime", () => {
-      expect(64).to.equal(rates.calculateTotalPay(10, 8, 2))
+      expect(rates.calculateTotalPay(10, 8, 2)).to.equal(64)
     });
 
     it("Endtime is before MIDNIGHT", () => {
-      expect(52).to.equal(rates.calculateTotalPay(5, 8, 10))
+      expect(rates.calculateTotalPay(5, 8, 10)).to.equal(52)
     });
   });
 });
