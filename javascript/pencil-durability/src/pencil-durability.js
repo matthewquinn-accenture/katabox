@@ -1,3 +1,3 @@
-export const write = () => {
-  return "She sells sea shells"
+export const write = (text = '') => {
+  return "She sells sea shells" + text
 }

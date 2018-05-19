@@ -14,5 +14,9 @@ describe("Pencil Durability Kata", () => {
     it("pencil can write", () => {
       expect(write()).to.equal("She sells sea shells")
     })
+
+    it("amends text to previous", () => {
+      expect(write(" down by the shore")).to.equal("She sells sea shells down by the shore")
+    })
   })
 })
