@@ -7,3 +7,7 @@ export const write = (text) => {
 export const getText = () => {
   return writtenText
 }
+
+export const getDurability = () => {
+  return 100
+}
