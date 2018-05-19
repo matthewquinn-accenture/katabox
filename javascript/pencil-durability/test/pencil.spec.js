@@ -1,6 +1,6 @@
 import Mocha from 'mocha'
 import { expect } from 'chai'
-import { write, getText, getDurability } from '../src/pencil-durability'
+import { Pencil, getText } from '../src/pencil'
 
 describe("Canary test", () => {
   it("true equals true", () => {
@@ -10,21 +10,29 @@ describe("Canary test", () => {
 
 describe("Pencil Durability Kata", () => {
 
+  let pencil;
+
+  beforeEach(() => {
+    pencil = new Pencil()
+  })
+
   describe("Write", () => {
     it("pencil can write", () => {
-      write("She sells sea shells")
+      pencil.write("She sells sea shells")
+
       expect(getText()).to.equal("She sells sea shells")
     })
 
     it("amends text to previous", () => {
-      write(" down by the shore")
+      pencil.write(" down by the shore")
+
       expect(getText()).to.equal("She sells sea shells down by the shore")
     })
   })
 
   describe("Point Degregation", () => {
     it("pencil has initial durability", () => {
-      expect(getDurability()).equal(100)
+      expect(pencil.getDurability()).equal(100)
     })
   })
 })

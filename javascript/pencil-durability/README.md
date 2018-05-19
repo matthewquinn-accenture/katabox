@@ -1,3 +1,3 @@
-# JS-Environment
+# Pencil-Durability Kata
 
-Basic JavaScript Environment Config
+Pencil Durability Kata: https://github.com/PillarTechnology/kata-pencil-durability
