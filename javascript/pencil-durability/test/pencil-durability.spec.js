@@ -1,6 +1,6 @@
 import Mocha from 'mocha'
 import { expect } from 'chai'
-import { write } from '../src/pencil-durability'
+import { write, getText } from '../src/pencil-durability'
 
 describe("Canary test", () => {
   it("true equals true", () => {
@@ -12,11 +12,13 @@ describe("Pencil Durability Kata", () => {
 
   describe("Write", () => {
     it("pencil can write", () => {
-      expect(write()).to.equal("She sells sea shells")
+      write("She sells sea shells")
+      expect(getText()).to.equal("She sells sea shells")
     })
 
     it("amends text to previous", () => {
-      expect(write(" down by the shore")).to.equal("She sells sea shells down by the shore")
+      write(" down by the shore")
+      expect(getText()).to.equal("She sells sea shells down by the shore")
     })
   })
 })
