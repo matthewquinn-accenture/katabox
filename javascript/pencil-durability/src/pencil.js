@@ -6,16 +6,25 @@ export class Pencil {
   }
 
   write(text) {
-
-  for (let letter of text) {
-    if (/[A-Z]/.test(letter)) {
-      this.durability -= 2
-    } else {
-      this.durability--
-    }
-}
+    this.pencilDegregation(text)
 
     writtenText += text
+  }
+
+  pencilDegregation(text) {
+    for (let letter of text) {
+
+      if (this.isUppercaseLetter(letter)) {
+        this.durability -= 2
+      } else {
+        this.durability--
+      }
+
+    }
+  }
+
+  isUppercaseLetter(letter) {
+    return /[A-Z]/.test(letter)
   }
 
   getDurability() {
