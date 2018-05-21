@@ -14,7 +14,9 @@ export class Pencil {
   pencilDegregation(text) {
     for (let letter of text) {
 
-      if (this.isUppercaseLetter(letter)) {
+      if(letter == "\n" || letter == " ") {
+        this.durability = this.durability
+      } else if (this.isUppercaseLetter(letter)) {
         this.durability -= 2
       } else {
         this.durability--

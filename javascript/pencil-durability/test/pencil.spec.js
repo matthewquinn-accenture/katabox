@@ -52,5 +52,12 @@ describe("Pencil Durability Kata", () => {
 
       expect(pencil.getDurability()).to.equal(93)
     })
+
+    it("shoud not degrade for spaces or newlines", () => {
+      pencil.write("\n")
+      pencil.write("   ")
+
+      expect(pencil.getDurability()).to.equal(100)
+    })
   })
 })
