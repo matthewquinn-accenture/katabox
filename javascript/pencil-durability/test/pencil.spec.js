@@ -34,5 +34,11 @@ describe("Pencil Durability Kata", () => {
     it("pencil has initial durability", () => {
       expect(pencil.getDurability()).equal(100)
     })
+
+    it("lowercase degregation", () => {
+      pencil.write("apple")
+
+      expect(pencil.getDurability()).to.equal(95)
+    })
   })
 })

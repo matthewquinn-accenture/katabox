@@ -6,6 +6,8 @@ export class Pencil {
   }
 
   write(text) {
+    this.durability -= text.length
+
     writtenText += text
   }
 
