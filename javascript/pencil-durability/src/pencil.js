@@ -7,11 +7,13 @@ export class Pencil {
 
   write(text) {
 
-    if (/[A-Z]/.test(text)) {
-      this.durability -= text.length * 2
+  for (let letter of text) {
+    if (/[A-Z]/.test(letter)) {
+      this.durability -= 2
     } else {
-      this.durability -= text.length
+      this.durability--
     }
+}
 
     writtenText += text
   }

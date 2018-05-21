@@ -46,5 +46,11 @@ describe("Pencil Durability Kata", () => {
 
       expect(pencil.getDurability()).to.equal(90)
     })
+
+    it("mixed-case words", () => {
+      pencil.write("ApPle")
+
+      expect(pencil.getDurability()).to.equal(93)
+    })
   })
 })
