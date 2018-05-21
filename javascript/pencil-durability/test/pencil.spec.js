@@ -40,5 +40,11 @@ describe("Pencil Durability Kata", () => {
 
       expect(pencil.getDurability()).to.equal(95)
     })
+
+    it("uppercase degregation", () => {
+      pencil.write("APPLE")
+
+      expect(pencil.getDurability()).to.equal(90)
+    })
   })
 })
