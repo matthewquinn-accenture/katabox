@@ -34,7 +34,7 @@ export class Pencil {
   }
 
   getDurability() {
-    return this.durability
+    return Math.max(this.durability, 0)
   }
 
 }

@@ -59,5 +59,11 @@ describe("Pencil Durability Kata", () => {
 
       expect(pencil.getDurability()).to.equal(100)
     })
+
+    it("durability can't be negative", () => {
+      pencil.write("WriTInG A BUNCH OF TeXT UnTIL DuRABIlITY ReAChEs PAST Zero ZERO ZERO")
+
+      expect(pencil.getDurability()).to.equal(0)
+    })
   })
 })
