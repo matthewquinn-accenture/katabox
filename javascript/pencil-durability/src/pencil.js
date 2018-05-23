@@ -1,16 +1,16 @@
 export class Pencil {
-  constructor(durability = 100, writtenText = '') {
+  constructor(paper, durability = 100) {
+    this.paper = paper
     this.durability = durability
-    this.writtenText = writtenText
   }
 
   write(text) {
     for (let letter of text) {
       if (this.durability > 0) {
           this.pencilDegregation(letter)
-          this.writtenText += letter
+          this.paper.writtenText += letter
       } else {
-          this.writtenText += ' '
+          this.paper.writtenText += ' '
       }
     }
   }
@@ -36,9 +36,4 @@ export class Pencil {
   getDurability() {
     return Math.max(this.durability, 0)
   }
-
-  getText() {
-    return this.writtenText
-  }
-
 }
