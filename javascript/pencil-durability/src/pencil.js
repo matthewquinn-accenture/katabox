@@ -1,27 +1,27 @@
-let writtenText = ''
-
 export class Pencil {
-  constructor(durability = 100) {
+  constructor(durability = 100, writtenText = '') {
     this.durability = durability
+    this.writtenText = writtenText
   }
 
   write(text) {
-    this.pencilDegregation(text)
-
-    writtenText += text
+    for (let letter of text) {
+      if (this.durability > 0) {
+          this.pencilDegregation(letter)
+          this.writtenText += letter
+      } else {
+          this.writtenText += ' '
+      }
+    }
   }
 
-  pencilDegregation(text) {
-    for (let letter of text) {
-
-      if(this.isNewlineOrSpace(letter)) {
+  pencilDegregation(letter) {
+    if (this.isNewlineOrSpace(letter)) {
         this.durability = this.durability
-      } else if (this.isUppercaseLetter(letter)) {
+    } else if (this.isUppercaseLetter(letter)) {
         this.durability -= 2
-      } else {
+    } else {
         this.durability--
-      }
-
     }
   }
 
@@ -37,8 +37,8 @@ export class Pencil {
     return Math.max(this.durability, 0)
   }
 
-}
+  getText() {
+    return this.writtenText
+  }
 
-export const getText = () => {
-  return writtenText
 }
