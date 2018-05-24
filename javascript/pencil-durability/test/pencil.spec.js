@@ -92,4 +92,14 @@ describe("Pencil Durability Kata", () => {
       expect(pencil.getDurability()).to.equal(93)
     })
   })
+
+  describe("Erase", () => {
+    it("should erase a given word", () => {
+      pencil.write("I like apples")
+
+      pencil.erase("apples")
+
+      expect(paper.getText()).to.equal("I like       ")
+    })
+  })
 })

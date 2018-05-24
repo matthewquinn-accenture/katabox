@@ -53,6 +53,14 @@ export class Pencil {
      this.durability = 100
   }
 
+  erase(text) {
+    let oldText = this.paper.writtenText
+    let blankSpaces = ' '.repeat(text.length)
+    let newText = oldText.replace(text, blankSpaces)
+
+    this.paper.writtenText = oldText.replace(oldText, newText)
+  }
+
   getDurability() {
     return Math.max(this.durability, 0)
   }
