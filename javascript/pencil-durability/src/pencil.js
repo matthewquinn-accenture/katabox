@@ -9,11 +9,15 @@ export class Pencil {
     for (let letter of text) {
       if (this.durability > 0) {
           this.pencilDegregation(letter)
-          this.paper.writtenText += letter
+          this.addText(letter)
       } else {
-          this.paper.writtenText += ' '
+          this.addText(' ')
       }
     }
+  }
+
+  addText(text) {
+    this.paper.writtenText += text
   }
 
   pencilDegregation(letter) {
