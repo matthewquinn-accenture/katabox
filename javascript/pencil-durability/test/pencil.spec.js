@@ -72,5 +72,24 @@ describe("Pencil Durability Kata", () => {
 
       expect(pencil.getPencilLength()).to.equal(9)
     })
+
+    it("when length is 0 durability isn't restored", () => {
+      pencil.sharpen()
+      pencil.sharpen()
+      pencil.sharpen()
+      pencil.sharpen()
+      pencil.sharpen()
+      pencil.sharpen()
+      pencil.sharpen()
+      pencil.sharpen()
+      pencil.sharpen()
+      pencil.sharpen()
+
+      pencil.write("Apples")
+
+      pencil.sharpen()
+
+      expect(pencil.getDurability()).to.equal(93)
+    })
   })
 })

@@ -35,9 +35,18 @@ export class Pencil {
   }
 
   sharpen() {
-    this.durability = 100
+    if (this.pencilLength > 0) {
+      this.shortenPencilLength()
+      this.restoreDurability()
+    }
+  }
 
+  shortenPencilLength() {
     this.pencilLength--
+  }
+
+  restoreDurability() {
+     this.durability = 100
   }
 
   getDurability() {
@@ -45,6 +54,6 @@ export class Pencil {
   }
 
   getPencilLength() {
-    return this.pencilLength
+    return Math.max(this.pencilLength, 0)
   }
 }
