@@ -64,5 +64,13 @@ describe("Pencil Durability Kata", () => {
 
       expect(pencil.getDurability()).to.equal(100)
     })
+
+    it("sharpening should reduce pencil length", () => {
+      pencil.write("I love apples")
+
+      pencil.sharpen()
+
+      expect(pencil.getPencilLength()).to.equal(9)
+    })
   })
 })

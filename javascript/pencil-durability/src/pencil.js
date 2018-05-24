@@ -1,7 +1,8 @@
 export class Pencil {
-  constructor(paper, durability = 100) {
+  constructor(paper, durability = 100, pencilLength = 10) {
     this.paper = paper
     this.durability = durability
+    this.pencilLength = pencilLength
   }
 
   write(text) {
@@ -35,9 +36,15 @@ export class Pencil {
 
   sharpen() {
     this.durability = 100
+
+    this.pencilLength--
   }
 
   getDurability() {
     return Math.max(this.durability, 0)
+  }
+
+  getPencilLength() {
+    return this.pencilLength
   }
 }
