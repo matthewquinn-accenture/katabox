@@ -55,4 +55,14 @@ describe("Pencil Durability Kata", () => {
       expect(pencil.getDurability()).to.equal(0)
     })
   })
+
+  describe("Sharpen", () => {
+    it("should regain initial durability when sharpened", () => {
+      pencil.write("Apples are the best")
+
+      pencil.sharpen()
+
+      expect(pencil.getDurability()).to.equal(100)
+    })
+  })
 })

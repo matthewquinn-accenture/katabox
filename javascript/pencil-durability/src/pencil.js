@@ -33,6 +33,10 @@ export class Pencil {
     return /[A-Z]/.test(letter)
   }
 
+  sharpen() {
+    this.durability = 100
+  }
+
   getDurability() {
     return Math.max(this.durability, 0)
   }
