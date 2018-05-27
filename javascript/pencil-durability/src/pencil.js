@@ -57,24 +57,32 @@ export class Pencil {
   erase(text) {
     let currentWrittenText = this.paper.writtenText
     let textIndex = currentWrittenText.lastIndexOf(text)
-    let blanks = ' '.repeat(text.length)
     let textIndexEnd = textIndex + text.length
 
-    if (this.eraserDurability < text.length) {
-      textIndex = (textIndex + (text.length - this.eraserDurability))
-      blanks = ' '.repeat(this.eraserDurability)
+    let textBeforeErase = currentWrittenText.substring(0, textIndex)
+    let blanks = ' '.repeat(text.length)
+    let textAfterErase = currentWrittenText.substring(textIndexEnd)
 
-      this.paper.writtenText = currentWrittenText.substring(0, textIndex) + blanks + currentWrittenText.substring(textIndexEnd, currentWrittenText.length)
-    } else {
-       this.eraserDegregation(text)
-       this.paper.writtenText = currentWrittenText.substring(0, textIndex) + blanks + currentWrittenText.substring(textIndexEnd)
+    if (this.isEraserDurabilityLessThanTextLength(text)) {
+        textIndex = (textIndex + (text.length - this.eraserDurability))
+
+        textBeforeErase = currentWrittenText.substring(0, textIndex)
+        blanks = ' '.repeat(this.eraserDurability)
+        textAfterErase = currentWrittenText.substring(textIndexEnd, currentWrittenText.length)
     }
+
+    this.eraserDegregation(text)
+    this.paper.writtenText = textBeforeErase + blanks + textAfterErase
   }
 
   eraserDegregation(text) {
     if (!this.isNewlineOrSpace(text)) {
       this.eraserDurability -= text.length
     }
+  }
+
+  isEraserDurabilityLessThanTextLength(text) {
+    return this.eraserDurability < text.length
   }
 
   getDurability() {
