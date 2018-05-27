@@ -60,9 +60,15 @@ export class Pencil {
     let blanks = ' '.repeat(text.length)
     let textIndexEnd = textIndex + text.length
 
-    this.eraserDegregation(text)
+    if (this.eraserDurability < text.length) {
+      textIndex = (textIndex + (text.length - this.eraserDurability))
+      blanks = ' '.repeat(this.eraserDurability)
 
-    this.paper.writtenText = currentWrittenText.substring(0, textIndex) + blanks + currentWrittenText.substring(textIndexEnd)
+      this.paper.writtenText = currentWrittenText.substring(0, textIndex) + blanks + currentWrittenText.substring(textIndexEnd, currentWrittenText.length)
+    } else {
+       this.eraserDegregation(text)
+       this.paper.writtenText = currentWrittenText.substring(0, textIndex) + blanks + currentWrittenText.substring(textIndexEnd)
+    }
   }
 
   eraserDegregation(text) {

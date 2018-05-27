@@ -135,5 +135,13 @@ describe("Pencil Durability Kata", () => {
 
       expect(pencil.getEraserDurability()).to.equal(15)
     })
+
+    it("pencil should erase in opposite order it was written", () => {
+      pencil.write("ThisIsARunOnSentenceOrSomething")
+
+      pencil.erase("ThisIsARunOnSentenceOrSomething")
+
+      expect(paper.getText()).to.equal("ThisIsARunOnSent               ")
+    })
   })
 })
