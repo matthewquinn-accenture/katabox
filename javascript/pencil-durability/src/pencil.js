@@ -54,12 +54,12 @@ export class Pencil {
   }
 
   erase(text) {
-    let oldText = this.paper.writtenText
-    let blankSpaces = ' '.repeat(text.length)
-    let myindex = oldText.lastIndexOf(text)
-    let newText = oldText.substring(0, myindex) + blankSpaces + oldText.substring(myindex + text.length)
+    let currentWrittenText = this.paper.writtenText
+    let textIndex = currentWrittenText.lastIndexOf(text)
+    let blanks = ' '.repeat(text.length)
+    let textIndexEnd = textIndex + text.length
 
-    this.paper.writtenText = newText
+    this.paper.writtenText = currentWrittenText.substring(0, textIndex) + blanks + currentWrittenText.substring(textIndexEnd)
   }
 
   getDurability() {
