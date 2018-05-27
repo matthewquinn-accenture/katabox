@@ -114,4 +114,10 @@ describe("Pencil Durability Kata", () => {
       expect(paper.getText()).to.equal("How much wood would a woodchuck chuck if a wood      could       wood?")
     })
   })
+
+  describe("Eraser Degregation", () => {
+    it("pencil has initial eraser durability", () => {
+      expect(pencil.getEraserDurability()).to.equal(15)
+    })
+  })
 })
