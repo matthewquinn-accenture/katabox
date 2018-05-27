@@ -127,5 +127,13 @@ describe("Pencil Durability Kata", () => {
 
       expect(pencil.getEraserDurability()).to.equal(9)
     })
+
+    it("whitespace doesn't degrade eraser", () => {
+      pencil.write("Let's do this")
+
+      pencil.erase(" ")
+
+      expect(pencil.getEraserDurability()).to.equal(15)
+    })
   })
 })

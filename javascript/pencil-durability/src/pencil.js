@@ -60,9 +60,15 @@ export class Pencil {
     let blanks = ' '.repeat(text.length)
     let textIndexEnd = textIndex + text.length
 
-    this.eraserDurability -= text.length
+    this.eraserDegregation(text)
 
     this.paper.writtenText = currentWrittenText.substring(0, textIndex) + blanks + currentWrittenText.substring(textIndexEnd)
+  }
+
+  eraserDegregation(text) {
+    if (!this.isNewlineOrSpace(text)) {
+      this.eraserDurability -= text.length
+    }
   }
 
   getDurability() {
