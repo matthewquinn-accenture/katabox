@@ -101,5 +101,17 @@ describe("Pencil Durability Kata", () => {
 
       expect(paper.getText()).to.equal("I like       ")
     })
+
+    it("should erase last instance of a word if it repeats", () => {
+      pencil.write("How much wood would a woodchuck chuck if a woodchuck could chuck wood?")
+
+      pencil.erase("chuck")
+
+      expect(paper.getText()).to.equal("How much wood would a woodchuck chuck if a woodchuck could       wood?")
+
+      pencil.erase("chuck")
+
+      expect(paper.getText()).to.equal("How much wood would a woodchuck chuck if a wood      could       wood?")
+    })
   })
 })
