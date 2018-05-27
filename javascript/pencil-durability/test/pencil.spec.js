@@ -119,5 +119,13 @@ describe("Pencil Durability Kata", () => {
     it("pencil has initial eraser durability", () => {
       expect(pencil.getEraserDurability()).to.equal(15)
     })
+
+    it("eraser durability decrease by 1 when eraser is called", () =>{
+      pencil.write("I like apples")
+
+      pencil.erase("apples")
+
+      expect(pencil.getEraserDurability()).to.equal(9)
+    })
   })
 })

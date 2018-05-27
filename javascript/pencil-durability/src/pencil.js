@@ -60,6 +60,8 @@ export class Pencil {
     let blanks = ' '.repeat(text.length)
     let textIndexEnd = textIndex + text.length
 
+    this.eraserDurability -= text.length
+
     this.paper.writtenText = currentWrittenText.substring(0, textIndex) + blanks + currentWrittenText.substring(textIndexEnd)
   }
 
