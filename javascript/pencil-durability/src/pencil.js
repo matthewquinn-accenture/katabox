@@ -85,6 +85,13 @@ export class Pencil {
     return this.eraserDurability < text.length
   }
 
+  edit(text) {
+    let placeToEdit = this.paper.writtenText.indexOf('  ')
+
+    this.paper.writtenText = this.paper.writtenText.substring(0, placeToEdit + 1) + text + this.paper.writtenText.substring(placeToEdit + text.length + 1)
+
+  }
+
   getDurability() {
     return Math.max(this.durability, 0)
   }

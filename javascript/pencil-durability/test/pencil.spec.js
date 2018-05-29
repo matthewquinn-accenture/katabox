@@ -144,4 +144,14 @@ describe("Pencil Durability Kata", () => {
       expect(paper.getText()).to.equal("ThisIsARunOnSent               ")
     })
   })
+
+  describe("Editing", () => {
+    it("editing should append text to blank spaces", () => {
+      pencil.write("An       a day keeps the doctor away")
+
+      pencil.edit("onion")
+
+      expect(paper.getText()).to.equal("An onion a day keeps the doctor away")
+    })
+  })
 })
