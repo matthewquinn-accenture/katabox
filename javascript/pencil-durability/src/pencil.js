@@ -87,9 +87,9 @@ export class Pencil {
 
   edit(text) {
     let placeToEdit = this.paper.writtenText.indexOf('  ')
+    let oldText = this.paper.writtenText
 
-    this.paper.writtenText = this.paper.writtenText.substring(0, placeToEdit + 1) + text + this.paper.writtenText.substring(placeToEdit + text.length + 1)
-
+    this.paper.writtenText = oldText.substring(0, placeToEdit + 1) + text + oldText.substring(placeToEdit + text.length + 1)
   }
 
   getDurability() {
