@@ -86,10 +86,20 @@ export class Pencil {
   }
 
   edit(text) {
-    let placeToEdit = this.paper.writtenText.indexOf('  ')
     let oldText = this.paper.writtenText
+    let spaceIndex = this.paper.writtenText.indexOf('  ')
+    let startEditIndex = spaceIndex + 1
 
-    this.paper.writtenText = oldText.substring(0, placeToEdit + 1) + text + oldText.substring(placeToEdit + text.length + 1)
+    for (let letterIndex = 0; letterIndex < text.length; letterIndex++) {
+        let replaceLetter = text.charAt(letterIndex)
+
+        if (oldText[startEditIndex + letterIndex] != ' ') {
+          replaceLetter = '@'
+        }
+
+     oldText = oldText.substring(0, startEditIndex + letterIndex) + replaceLetter + oldText.substring(startEditIndex + letterIndex + 1)
+     this.paper.writtenText = oldText
+    }
   }
 
   getDurability() {

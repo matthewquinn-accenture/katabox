@@ -153,5 +153,13 @@ describe("Pencil Durability Kata", () => {
 
       expect(paper.getText()).to.equal("An onion a day keeps the doctor away")
     })
+
+    it("overlapping text edits return @", () => {
+      pencil.write("An       a day keeps the doctor away")
+
+      pencil.edit("artichoke")
+
+      expect(paper.getText()).to.equal("An artich@k@ay keeps the doctor away")
+    })
   })
 })
