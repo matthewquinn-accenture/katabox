@@ -86,20 +86,38 @@ export class Pencil {
   }
 
   edit(text) {
-    let oldText = this.paper.writtenText
     let spaceIndex = this.paper.writtenText.indexOf('  ')
     let startEditIndex = spaceIndex + 1
 
     for (let letterIndex = 0; letterIndex < text.length; letterIndex++) {
-        let replaceLetter = text.charAt(letterIndex)
+      let replacement = this.getLetter(text, startEditIndex, letterIndex)
 
-        if (oldText[startEditIndex + letterIndex] != ' ') {
-          replaceLetter = '@'
-        }
-
-     oldText = oldText.substring(0, startEditIndex + letterIndex) + replaceLetter + oldText.substring(startEditIndex + letterIndex + 1)
-     this.paper.writtenText = oldText
+      this.pencilDegregation(text[letterIndex])
+      this.paper.writtenText = this.replaceLetter(startEditIndex, letterIndex, replacement)
     }
+  }
+
+  getLetter(text, startEditIndex, letterIndex) {
+    let letter = text.charAt(letterIndex)
+
+    if (!this.isLetterAtIndexBlank(startEditIndex, letterIndex)) {
+      letter = '@'
+    }
+
+    return letter
+  }
+
+  isLetterAtIndexBlank(startEditIndex, letterIndex) {
+    return this.paper.writtenText[startEditIndex + letterIndex] == ' '
+  }
+
+  replaceLetter(startEditIndex, letterIndex, replacement) {
+    let writtenText = this.paper.writtenText
+
+    let textBeforeEdit = writtenText.substring(0, startEditIndex + letterIndex)
+    let textAfterEdit = writtenText.substring(startEditIndex + letterIndex + 1)
+
+    return textBeforeEdit + replacement + textAfterEdit
   }
 
   getDurability() {
