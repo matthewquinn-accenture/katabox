@@ -1,7 +1,7 @@
 import Mocha from 'mocha'
 import { expect } from 'chai'
 import { isValidCoin } from '../src/coin-box.js'
-import { NICKEL, DIME, QUARTER} from './coin.js'
+import { NICKEL, DIME, QUARTER } from './coin.js'
 
 describe("Vending Machine Kata", () => {
   describe("Coins", () => {
