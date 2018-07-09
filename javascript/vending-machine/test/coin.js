@@ -7,3 +7,8 @@ export const DIME = {
   size: 0.01,
   weight: 0.01
 }
+
+export const QUARTER = {
+  size: 0.15,
+  weight: 0.20
+}
