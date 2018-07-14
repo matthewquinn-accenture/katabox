@@ -1,7 +1,7 @@
 import Mocha from 'mocha'
 import { expect } from 'chai'
 import { display, insert } from '../src/vending-machine.js'
-import { NICKEL, DIME } from './coin.js'
+import { NICKEL, DIME, QUARTER } from './coin.js'
 
 describe("Canary test", () => {
   it("true equals true", () => {
@@ -25,6 +25,12 @@ describe("Vending Machine Kata", () => {
       insert(DIME)
 
       expect(display()).to.equal(0.10)
+    })
+
+    it("Inserting a quarter updates display", () => {
+      insert(QUARTER)
+
+      expect(display()).to.equal(0.25)
     })
   })
 })

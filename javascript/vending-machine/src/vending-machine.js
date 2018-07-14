@@ -1,4 +1,4 @@
-import { isNickel, isDime } from './coin-box.js'
+import { isNickel, isDime, isQuarter } from './coin-box.js'
 
 let balance = 0
 
@@ -15,8 +15,10 @@ export const display = () => {
 export const insert = (coin) => {
   if (isNickel(coin)) {
     balance = 0.05
-  } else {
+  } else if (isDime(coin)) {
     balance = 0.10
+  } else {
+    balance = 0.25
   }
 
   return balance
